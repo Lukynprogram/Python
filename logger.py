@@ -1,4 +1,3 @@
-import os
 from datetime import datetime, date
 
 def vyber():
@@ -14,13 +13,18 @@ def prichod():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     today = date.today()
-    print(f'PRICHOD: Dnesni datum je: {today} a cas je {current_time}')
+    todayformat = today.strftime("%d-%B-%Y")
+    with open('pracelog.txt', 'a+') as f:
+        f.write(f'PRICHOD: Dnesni datum je: {todayformat} a cas je {current_time} \n')
+        f.close()
 
 def odchod():
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     today = date.today()
-    print(f'ODCHOD:  Dnesni datum je: {today} a cas je {current_time}')
-    print("///////////////////////////////////////////////////////////////////////////////")
-
+    todayformat = today.strftime("%d-%B-%Y")
+    with open('pracelog.txt', 'a+') as f:
+        f.write(f'ODCHOD:  Dnesni datum je: {todayformat} a cas je {current_time}\n')
+        f.write(f'/////////////////////////////////////////////////////////////////////////////// \n')
+        f.close()
 vyber()
