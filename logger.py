@@ -18,9 +18,14 @@ def mzda():
     timem2 = int(input("Zadej cas odchodu v minutach: "))
     money = int(input("Zadej kolik dostavas na hodinu: "))
     den = input("Zadej co to bylo za den: ")
-
-    finaltimeh = timeh2 - timeh1
-    finaltimem = timem2 - timem1
+    if timeh2 > timeh1:
+        finaltimeh = timeh2 - timeh1
+    else:
+        finaltimeh = timeh1 - timeh2
+    if timem2 > timeh1:
+        finaltimem = timem2 - timem1
+    else:
+        finaltimem = timem1 - timem2
     finalmoney = (finaltimeh * money) + (finaltimem/60 * money)
     zaokrouhleno = round(finalmoney, 2)
     print(f'\nOdpracovany cas je: {finaltimeh} hodin/y a {finaltimem} minut.')
