@@ -26,7 +26,7 @@ def mzda():
         finaltimem = timem2 - timem1
     else:
         finaltimem = timem1 - timem2
-    finalmoney = (finaltimeh * money) + (finaltimem/60 * money)
+    finalmoney = (finaltimeh + finaltimem/60) * money
     zaokrouhleno = round(finalmoney, 2)
     print(f'\nOdpracovany cas je: {finaltimeh} hodin/y a {finaltimem} minut.')
     print(f'Za tento den: {den} jsi si vydelal: {zaokrouhleno} Korun')
