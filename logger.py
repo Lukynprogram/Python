@@ -24,7 +24,7 @@ def odchod():
     today = date.today()
     todayformat = today.strftime("%d-%B-%Y")
     with open('pracelog.txt', 'a+') as f:
-        f.write(f'ODCHOD:  Dnesni datum je: {todayformat} a cas je {current_time}\n')
-        f.write(f'/////////////////////////////////////////////////////////////////////////////// \n')
+        f.write(f'ODCHOD:  Dnesni datum je: {todayformat} a cas je {current_time}\n\n')
+        f.write(f'/////////////////////////////////////////////////////////////////////////////// \n\n')
         f.close()
 vyber()
