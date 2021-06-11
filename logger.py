@@ -18,17 +18,17 @@ def mzda():
     timem2 = int(input("Zadej cas odchodu v minutach: "))
     money = int(input("Zadej kolik dostavas na hodinu: "))
     den = input("Zadej co to bylo za den: ")
+    minutamoney = money/60
     if timeh2 > timeh1:
-        finaltimeh = timeh2 - timeh1
+        finaltimeh = timeh2 - timeh1 #16 - 12 = 4
     else:
         finaltimeh = timeh1 - timeh2
-    if timem2 > timeh1:
+    if timem2 < timeh1:
         finaltimem = timem2 - timem1
     else:
         finaltimem = timem1 - timem2
-    finalmoney = (finaltimeh + finaltimem/60) * money
+    finalmoney = (finaltimeh * 60 + finaltimem) * minutamoney
     zaokrouhleno = round(finalmoney, 2)
-    print(f'\nOdpracovany cas je: {finaltimeh} hodin/y a {finaltimem} minut.')
     print(f'Za tento den: {den} jsi si vydelal: {zaokrouhleno} Korun')
     with open('vyplata.txt', 'a+') as f:
         f.write(f'Za {den} jsi si vydelal {zaokrouhleno} Korun\n\n')
