@@ -1,5 +1,4 @@
 from datetime import datetime, date
-
 def vyber():
     vyber = int(input("Prejes si Prichod - 1 nebo Odchod - 2? Nebo vypocitat odpracovany cas? - 3: "))
     if vyber == 1:
@@ -19,14 +18,23 @@ def mzda():
     money = int(input("Zadej kolik dostavas na hodinu: "))
     den = input("Zadej co to bylo za den: ")
     minutamoney = money/60
-    if timeh2 > timeh1:
-        finaltimeh = timeh2 - timeh1 #16 - 12 = 4
-    else:
-        finaltimeh = timeh1 - timeh2
-    if timem2 < timeh1:
+
+    if timeh2 > timeh1 and timem2 > timem1:               #tested
+        finaltimeh = timeh2 - timeh1
         finaltimem = timem2 - timem1
-    else:
-        finaltimem = timem1 - timem2
+
+    elif timeh2 > timeh1 and timem2 < timem1:             #tested
+        finaltimeh = timeh2 - timeh1 - 1
+        finaltimem = 60 + (timem2 - timem1)
+
+    elif timeh2 < timeh1 and timem2 > timem1:             #tested
+        finaltimeh = 24 + (timeh2 - timeh1)
+        finaltimem = timem2 - timem1
+
+    elif timeh2 < timeh1 and timem2 < timem1:             #tested
+        finaltimeh = 24 + (timeh2 - timeh1 - 1)
+        finaltimem = 60 + (timem2 - timem1)
+
     finalmoney = (finaltimeh * 60 + finaltimem) * minutamoney
     zaokrouhleno = round(finalmoney, 2)
     print(f'Za tento den: {den} jsi si vydelal: {zaokrouhleno} Korun')
