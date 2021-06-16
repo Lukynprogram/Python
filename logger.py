@@ -40,7 +40,7 @@ def mzda():
     zaokrouhleno = round(finalmoney, 2)
     print(f'Za tento den: {den} jsi si vydelal: {zaokrouhleno} Korun')
     with open('vyplata.txt', 'a+') as f:
-        f.write(f'Za {den} jsi si vydelal {zaokrouhleno} Korun\n\n')
+        f.write(f'Za {den} jsi si vydelal {zaokrouhleno} Korun - odpracoval jsi {finaltimeh} hodin a {finaltimem} minut. \n\n')
         f.close()
     pokracovani = input("Prejes si pokracovat? Y/N: ")
     if pokracovani == "Y" or pokracovani == "y":
@@ -54,7 +54,6 @@ def prichod():
     today = date.today()
     todayformat = today.strftime("%d-%B-%Y")
     with open('pracelog.txt', 'a+') as f:
-        lajna = f.readline()
         f.write("///////////////////////////////////////////////////////////////////////////////\n\n")
         f.write(f'PRICHOD: Dnesni datum je: {todayformat} a cas je {current_time} \n')
         f.close()
