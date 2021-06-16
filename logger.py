@@ -1,4 +1,5 @@
 from datetime import datetime, date
+
 def vyber():
     vyber = int(input("Prejes si Prichod - 1 nebo Odchod - 2? Nebo vypocitat odpracovany cas? - 3: "))
     if vyber == 1:
@@ -53,9 +54,10 @@ def prichod():
     today = date.today()
     todayformat = today.strftime("%d-%B-%Y")
     with open('pracelog.txt', 'a+') as f:
+        lajna = f.readline()
+        f.write("///////////////////////////////////////////////////////////////////////////////\n\n")
         f.write(f'PRICHOD: Dnesni datum je: {todayformat} a cas je {current_time} \n')
         f.close()
-
 
 def odchod():
     now = datetime.now()
